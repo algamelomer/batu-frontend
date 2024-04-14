@@ -1,0 +1,91 @@
+<template>
+  <template v-if="departmentData">
+    <Transition />
+    <BaseHeaderImage :title="departmentData.name" :subtitle="departmentData.description"
+      :imgPath="departmentData.image" />
+    <div class=" flex flex-col px-0 md:px-10">
+      <BaseImgSection v-if="departmentData.supervisory_team[0]"
+        :title="'Department ' + departmentData.supervisory_team[0].position + '’s speech (' + departmentData.supervisory_team[0].name + ' )'"
+        :description="departmentData.supervisory_team[0].description"
+        :imgPath="departmentData.supervisory_team[0].image" :animate="true" />
+      <DepartmentVideo title="Definition of the department" :video="departmentVideo"
+        :description="departmentData.description_video" v-if="departmentVideo" />
+      <template v-if="departmentData.job_opportunities">
+        <Work class="mt-16" :Work="departmentData.job_opportunities" v-if="departmentData.job_opportunities.length" />
+      </template>
+      <BaseContainer class="min-h-64 py-5 mb-20">
+        <BaseTitle title="programs's Vision" class="mx-auto" />
+        <BaseSubtitle
+          subtitle="To empower individuals with the knowledge and skills necessary to thrive in a rapidly evolving digital world. Our IT program seeks to cultivate innovative thinkers, problem solvers, and technologically adept professionals who can drive positive change in society. By providing a comprehensive and dynamic curriculum, supported by cutting-edge research and industry partnerships, we aim to equip our students with the expertise and adaptability needed to succeed in diverse IT roles. Our vision is to foster a community of lifelong learners who are committed to excellence, ethical practice, and continual innovation, shaping the future of technology and making meaningful contributions to global progress."
+          class="mx-auto" text_styles="!text-gray-dark !text-lg !font-Mulish" />
+      </BaseContainer>
+
+      <BaseContainer class="min-h-64 py-5">
+        <BaseTitle title="programs's mission" class="mx-auto" />
+        <BaseSubtitle
+          subtitle="Our mission is to provide high-quality education and training in Information Technology, enabling students to excel in a rapidly advancing digital landscape. Through rigorous academic programs, hands-on learning experiences, and practical industry exposure, we strive to prepare our students for successful careers in IT. We are committed to fostering a supportive learning environment that encourages creativity, critical thinking, and collaboration. Additionally, we aim to conduct cutting-edge research that addresses real-world challenges and contributes to the advancement of IT knowledge. By promoting inclusivity, diversity, and ethical leadership, we seek to empower our graduates to make positive impacts in their professions and communities, driving innovation and societal progress through technology."
+          class="mx-auto" text_styles="!text-gray-dark !text-lg !font-Mulish" />
+      </BaseContainer>
+      <StudentProjects class="mt-16" :StudentProjects="departmentData.student_projects"
+        v-if="departmentData.student_projects.length" />
+      <availableCourses class="mt-16" :availableCourses="departmentData.study_plan"
+        v-if="departmentData.study_plan.length" />
+    </div>
+    <Transition />
+  </template>
+
+  <template v-else>
+    <div class="flex justify-center items-center h-screen">
+      <div class="loader">
+        <div role="status">
+          <svg aria-hidden="true" class="w-16 h-16 text-gray-200 animate-spin dark:text-gray-600 fill-green"
+            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+              fill="currentColor" />
+            <path
+              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+              fill="currentFill" />
+          </svg>
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </template>
+</template>
+
+<script setup>
+import DepartmentVideo from "./components/DepartmentVideo.vue";
+import Work from "./components/Work.vue";
+import StudentProjects from "./components/StudentsProjects.vue";
+import availableCourses from "./components/AvailableCourses.vue";
+import BaseHeaderImage from "@/components/BaseHeaderImage.vue";
+import BaseContainer from "@/components/BaseContainer.vue";
+import BaseImgSection from "@/components/BaseImgSection.vue";
+import { ref, computed } from 'vue'
+import { useStore } from '@/store'
+import parseVideoUrl from '@/global/videoEmbed'
+
+
+const props = defineProps({ id: String })
+const departmentData = ref(null)
+
+const departmentVideo = computed(() => {
+  if (departmentData.value.video) {
+    return parseVideoUrl(departmentData.value.video)
+
+  } else {
+    return null
+
+  }
+
+})
+const getData = async () => {
+  await useStore().getDepartments(props.id)
+  departmentData.value = useStore().department.department
+  // (useStore().department)
+}
+
+
+getData()
+</script>

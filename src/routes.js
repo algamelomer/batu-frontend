@@ -19,7 +19,6 @@ import YouthCare from "@views/main/YouthCare/YouthCare.vue";
 
 export default createRouter({
     scrollBehavior(to, from, savedPosition) {
-        // always scroll to top
         return { top: 0 };
     },
     history: createWebHistory(),

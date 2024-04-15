@@ -19,28 +19,28 @@ var dummyCards=[
    {
         iconPath: '/src/assets/icons/exam.svg',
         title: 'Exam Results',
-        onclick: () => router.push('/exam'),
+        onclick: () => router.push('/grades'),
              },
       {
         iconPath: 'src/assets/icons/mail.svg',
         title: 'Students Mail',
-        onclick: () => router.push('/mail'),
+        onclick: () => router.push('/soon'),
              },
       {
         iconPath: 'src/assets/icons/pay.svg',
         title: 'Pay electronically',
-        onclick: () => router.push('/pay'),
+        onclick: () => router.push('/soon'),
             
             },
       {
         iconPath:'src/assets/icons/schedule.svg',
         title: 'Class schedules',
-        onclick: () => router.push('/schedule'),
+        onclick: () => router.push('/soon'),
              },
       {
         iconPath: 'src/assets/icons/liberary.svg',
         title: 'Library',
-        onclick: () => router.push('/liberary'),
+        onclick: () => router.push('/soon'),
              
       },
       {
@@ -52,17 +52,17 @@ var dummyCards=[
         iconPath:
           'src/assets/icons/schedule.svg',
         title: 'Exam schedules',
-        onclick: () => router.push('/schedule'),
+        onclick: () => router.push('/soon'),
              },
       {
         iconPath: 'src/assets/icons/course.svg',
         title: 'Course registration',
-        onclick: () => router.push('/course'),
+        onclick: () => router.push('/soon'),
       },
       {
         iconPath: 'src/assets/icons/dashboard.svg',
         title: 'Dashboard',
-        onclick: () => router.push('/dashboard'),
+        onclick: () => router.push('/soon'),
       },
 ]
 </script>

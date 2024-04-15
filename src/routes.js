@@ -14,6 +14,7 @@ import LMS from "@views/main/lms/LMS.vue";
 import dr_page from "@views/main/dr_page/dr_page.vue";
 import FacultyStaff from "@views/main/facultyStaff/FacultyStaff.vue";
 import grades from "@views/main/grades/grades.vue";
+import team from "@views/main/team/team.vue";
 
 export default createRouter({
     scrollBehavior(to, from, savedPosition) {
@@ -41,6 +42,8 @@ export default createRouter({
                 { path: "/how_to_apply", component: how_to_apply },
                 { path: "/grades", component: grades },
                 { path: "/grades/:sitting_num/:dep", component: grades, props: true },
+                { path: "/developers", component: team },
+
             ],
         },
         {

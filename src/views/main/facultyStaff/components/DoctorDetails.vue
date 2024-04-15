@@ -1,16 +1,18 @@
 <template>
-  <div class="flex">
+  <div class="flex flex-col mt-10 md:mt-0 md:flex-row">
     <div class="basis-1/3">
       <div class="flex flex-col items-center">
         <img :src="props.imgPath" alt="" class="flex-none rounded-xl h-56" />
         <div class="bg-white rounded-xl grid grid-cols-1 gap-3 mt-9">
           <button
             class="w-56 rounded-full h-12 bg-green text-white hover:bg-green-dark duration-200"
+            v-if="!props.isDean"
           >
             Download Cv
           </button>
           <button
             class="w-56 border-2 border-green rounded-full h-12 bg-white text-black hover:bg-green hover:text-white duration-200"
+            v-if="!props.isDean"
           >
             Courses
           </button>
@@ -52,5 +54,6 @@ const props = defineProps({
   major: String,
   description: String,
   imgPath: String,
+  isDean: { type: Boolean, default: false },
 });
 </script>

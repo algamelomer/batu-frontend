@@ -4,6 +4,7 @@
     <div class="mx-auto flex flex-col sm:flex-row w-4/5 mt-10">
       <BaseDropDown
         :items="dummyCollages"
+        @itemChosen="collageChosen"
         defaultValue="choose collage"
         class="rounded-full z-10 sm:basis-1/2 mb-5 sm:mb-0"
       ></BaseDropDown>
@@ -42,10 +43,15 @@
 <script setup>
 import BaseDropDown from "@/components/BaseDropDown.vue";
 
+const emit = defineEmits(["collageChosen"]);
 var dummyCollages = ["Industry and Energy College", "Health science collage"];
 var dummyMajors = [
   "Information technology",
   "tractorHigh-tech tractor technology and agricultural equipment",
   "railway Technology",
 ];
+
+function collageChosen(collage) {
+  emit("collageChosen", collage);
+}
 </script>

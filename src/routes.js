@@ -15,6 +15,7 @@ import dr_page from "@views/main/dr_page/dr_page.vue";
 import FacultyStaff from "@views/main/facultyStaff/FacultyStaff.vue";
 import grades from "@views/main/grades/grades.vue";
 import team from "@views/main/team/team.vue";
+import YouthCare from "@views/main/YouthCare/YouthCare.vue";
 
 export default createRouter({
     scrollBehavior(to, from, savedPosition) {
@@ -44,6 +45,9 @@ export default createRouter({
                 { path: "/grades/:err", component: grades, props: true },
                 { path: "/grades/:sitting_num/:dep", component: grades, props: true },
                 { path: "/developers", component: team },
+                { path: "/youth_care", component: YouthCare },
+                { path: "/youth_care/:id", component: YouthCare, props: true },
+
             ],
         },
         {

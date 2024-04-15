@@ -3,14 +3,15 @@
     <LandingImage :counter="details.counter" color="text-gray-light" background="bg-gray-light "
       styles="sm:brightness-[4]" v-if="details.counter" />
     <div class=" md:px-10">
+
       <!-- President’s word -->
       <template v-for=" items in president">
         <template v-if="items.position == 'university_president'">
-          <BaseImgSection title="University President’s Word" :animate="true"
-            :description="items.description"
+          <BaseImgSection title="University President’s Word" :animate="true" :description="items.description"
             :imgPath="items.image" />
         </template>
       </template>
+      <BatuJourneys />
 
 
       <News :news="news" class=" mt-16" title="Recent News"
@@ -19,7 +20,6 @@
       <OurActivities :activities="details.activity" />
       <BatuCounter class="sm:hidden" :counter="details.counter" color="text-gray-dark" background="bg-gray-dark"
         v-if="details.counter" />
-      <BatuJourneys />
     </div>
   </template>
   <template v-else>

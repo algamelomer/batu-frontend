@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:max-w-md absolute top-8 right-1/2 translate-x-1/2 px-6">
+    <div class="w-full sm:max-w-md absolute top-20 right-1/2 translate-x-1/2 px-6">
         <div
             class="relative block w-full p-4 mb-4 text-base leading-5 text-white rounded-lg opacity-100 font-regular" :class=" color ">
             

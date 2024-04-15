@@ -80,10 +80,6 @@
                 </transition-group>
             </div>
 
-
-
-            Researches_title
-            Researches_description
             <!-- researches -->
             <div class="flex flex-col w-full gap-4">
                 <label for="Researches_title">Researches (لاضافه وظيف اكتبها ثم اضغط Add اما اذا كنت تريد ان تحفذفها

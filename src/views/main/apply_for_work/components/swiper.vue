@@ -1,10 +1,10 @@
 <template>
     <div class=" w-full h-full ">
-        <swiper :pagination="pagination" :modules="modules" class="mySwiper h-60">
+        <swiper :pagination="pagination" :modules="modules" class="mySwiper h-96 sm:h-80 md:h-72 lg:h-60">
             <template v-for=" items in data" :key=" items.id">
                 <swiper-slide class=" py-8 px-4 flex flex-col items-center bg-green-light h-full">
                     <BaseTitle :title="items.title" styles="!text-2xl -mb-4" />
-                    <BaseSubtitle :subtitle="items.subtitle" styles=" w-full" color="text-xs text-gray-400 mt-4" />
+                    <BaseSubtitle :subtitle="items.subtitle" styles=" w-full overflow-auto mt-1" color="text-xs text-gray-400 mt-4" />
                 </swiper-slide>
             </template>
         </swiper>

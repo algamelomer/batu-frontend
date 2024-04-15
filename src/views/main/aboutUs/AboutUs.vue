@@ -32,7 +32,7 @@
         <div class="bg-gray-light dark:bg-darkMode-gray-light flex flex-col justify-around p-20 rounded-[7px]">
             <BaseTitle title="Vacancies within the university" :animate="true" class="mx-auto" />
             <router-link
-                class=" bg-green-dark border-green-dark border-2 hover:bg-green transition duration-300 w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
+                class=" bg-green-dark border-green-dark border-2 hover:bg-green transition duration-300 w-full sm:w-3/4 md:w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
                 to="/work_apply">
                 <p>Go To Page</p><font-awesome-icon icon="angle-up" class=" transform rotate-90" />
             </router-link>

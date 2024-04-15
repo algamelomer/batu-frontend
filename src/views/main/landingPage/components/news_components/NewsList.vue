@@ -5,9 +5,9 @@
     <swiper :direction="direction" :slidesPerView="slidesPerView" :spaceBetween="30" :pagination="{
       type: 'progressbar',
     }" :autoplay="{
-  delay: work,
-  disableOnInteraction: disable,
-}" :navigation="true" :modules="modules" class=" w-full h-60 min-[1222px]:w-[30rem]  min-[1222px]:h-[45rem]">
+      delay: work,
+      disableOnInteraction: disable,
+    }" :navigation="true" :modules="modules" class=" w-full h-60 min-[1222px]:w-[30rem]  min-[1222px]:h-[45rem]">
 
       <!-- slider for cards -->
       <swiper-slide v-for="item in props.apiData" :key="item.id">
@@ -21,7 +21,7 @@
     <MainCard :mainCard="props.mainCard" />
   </div>
 </template>
-  
+
 <script setup>
 import NewsCard from './NewsCard.vue';
 import MainCard from './MainNewsCard.vue';
@@ -86,7 +86,7 @@ const modules = [Pagination, Autoplay, Navigation]
 // };
 </script>
 
-  
+
 <style scoped>
 .swiper-slide {
   text-align: center;
@@ -105,5 +105,3 @@ const modules = [Pagination, Autoplay, Navigation]
   object-fit: cover;
 }
 </style>
-
-  

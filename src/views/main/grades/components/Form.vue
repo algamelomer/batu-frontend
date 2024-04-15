@@ -1,8 +1,4 @@
 <template>
-    <transition name="fade">
-        <Alert v-if="alert" :alert-message="alert" class=" z-40 !fixed top-6 right-1/2 translate-x-1/2"
-            color=" bg-green-500"></Alert>
-    </transition>
     <div
         class=" bg-gray-light dark:bg-darkMode-gray-light p-12 w-full m-auto rounded-md flex flex-col items-center text-center">
         <h1 class=" font-mulish font-bold text-4xl text-green-dark">{{ title }}</h1>
@@ -10,10 +6,13 @@
         <form class=" grid grid-cols-1 w-full gap-4 min-[850px]:grid-cols-2 min-[1149px]:px-[135px]"
             @submit.prevent="submitForm(form)">
             <div class="relative h-fit w-full sm:w-fit m-auto">
-                <!-- year -->
-                <select v-model="formData.contact_reason"
+                <!-- faculty -->
+                <select v-model="formData.faculty" required
                     class=" text-xs min-[370px]:text-xs min-[400px]:text-sm sm:text-base cursor-pointer w-full m-auto sm:w-[335px] h-14 p-2 pr-10 border border-green-dark rounded-[55px] shadow-sm focus:outline-none focus:border-green-dark text-center text-white bg-green hover:bg-green-dark transition duration-300 appearance-none">
-                    <option value="" disabled selected>Choose your Year</option>
+                    <option value="" disabled selected>Choose your Faculty</option>
+                    <template v-for=" faculty in props.data.faculties">
+                        <option :value="faculty.id">{{ faculty.name }}</option>
+                    </template>
                 </select>
                 <div
                     class="absolute inset-y-0 top-1 right-1 min-[360px]:right-4 flex items-center pr-2 pointer-events-none text-white">
@@ -22,24 +21,23 @@
             </div>
             <!-- department -->
             <div class="relative h-fit w-full sm:w-fit m-auto">
-                <select v-model="formData.contact_reason"
+                <select v-model="formData.department_id" required
                     class=" text-xs min-[370px]:text-xs min-[400px]:text-sm sm:text-base cursor-pointer w-full m-auto sm:w-[335px] h-14 p-2 pr-10 border border-green-dark rounded-[55px] shadow-sm focus:outline-none focus:border-green-dark text-center text-white bg-green hover:bg-green-dark transition duration-300 appearance-none">
                     <option value="" disabled selected>Choose your department</option>
+                    <template v-for=" department in props.data.departments">
+                        <template v-if="department.faculty_id == formData.faculty">
+                            <option :value="department.id">{{ department.name }}</option>
+                        </template>
+                    </template>
                 </select>
                 <div
                     class="absolute inset-y-0 top-1 right-1 min-[360px]:right-4 flex items-center pr-2 pointer-events-none text-white">
                     <font-awesome-icon :icon="['fas', 'angle-down']" />
                 </div>
             </div>
-            <!-- <input placeholder="Enter your Name" v-model="formData.name" type="text"
-                class=" w-full m-auto sm:w-[335px] h-14 rounded-[55px] border-[1.4px] active:border-green-dark border-green-dark text-green-dark text-center" /> -->
-
-            <!-- <input placeholder="Your Number" v-model="formData.number" type="text"
-                class=" w-full m-auto sm:w-[335px] h-14 rounded-[55px] border-[1.4px] active:border-green-dark border-green-dark text-green-dark text-center" /> -->
-
             <div class=" gap-4 min-[850px]:gap-0 min-[850px]:col-span-2 flex flex-col min-[850px]:flex-row">
 
-                <input placeholder="Enter your Seat-Number..." v-model="formData.email" type="text"
+                <input placeholder="Enter your Seat-Number..." v-model="formData.sitting_num" type="text" required
                     class="m-auto text-xs min-[370px]:text-xs min-[400px]:text-sm sm:text-base relative w-full sm:w-[335px] min-[850px]:w-[462px] h-14 border-[1px] rounded-[55px] shadow-sm focus:outline-none text-center text-green-dark border-green transition duration-300 focus:border-green-dark focus:border-2" />
 
                 <button :disabled="loading" type="submit"
@@ -60,68 +58,37 @@
                 </button>
             </div>
         </form>
-
+        <template v-if="err">
+            <p class=" text-red-700 text-center items-center justify-center mt-4">
+                <span v-if=" err == 0">an error has occurred</span>
+                <span v-if=" err == 1 ">sitting number or department is incorrect</span>
+                <span v-if=" err == 2 ">sitting number contain only numbers</span>
+            </p>
+        </template>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import Alert from '@/components/Alert.vue'
+import { useRouter } from 'vue-router';
 
+const props = defineProps({
+    data: String,
+    err: String
+})
+const router = useRouter();
 const title = "Inquiry about exam results"
 const loading = ref(false);
 const formData = ref({
-    name: "",
-    email: "",
-    number: "",
-    contact_reason: "",
-    message: ""
+    faculty: "",
+    department_id: "",
+    sitting_num: "",
 });
 
-
-const alert = ref('')
-
 const submitForm = () => {
-    loading.value = true;
-    const timestamp = new Date().toISOString();
-
-    const formDatab = new FormData();
-    formDatab.append("Name", formData.value.name);
-    formDatab.append("Email", formData.value.email);
-    formDatab.append("Message", formData.value.message);
-    formDatab.append("Contact_reason", formData.value.contact_reason);
-    formDatab.append("Number", formData.value.number);
-    formDatab.append("Timestamp", timestamp);
-
-    fetch(
-        "https://script.google.com/macros/s/AKfycbxakDRwQcY02NazogAYBdISp8KUmPcPWr8zO5lRs6J0lqgjP9zPNE11LTF1bH959mv2/exec",
-        {
-            method: "POST",
-            body: formDatab
-        }
-    )
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return res.text();
-        })
-        .then((data) => {
-            formData.value.name = "";
-            formData.value.email = "";
-            formData.value.message = "";
-            formData.value.contact_reason = "";
-            formData.value.number = "";
-            loading.value = false;
-            alert.value = data;
-            setTimeout(function () {
-                alert.value = "";
-            }, 4000);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+    router.push({ path: '/grades/' + formData.value.sitting_num + '/' + formData.value.department_id });
 };
+
 </script>
 
 <style scoped>

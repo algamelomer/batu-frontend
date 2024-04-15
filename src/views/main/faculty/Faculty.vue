@@ -1,7 +1,7 @@
 <template>
     <template v-if="facultyData">
         <BaseHeaderImage :title="facultyData.faculty.name" :subtitle="facultyData.faculty.description"
-            :imgPath="facultyData.faculty.image" class=" mb-14"/>
+            :imgPath="facultyData.faculty.image" class=" mb-14" />
         <!-- deep -->
         <div class=" px-0 md:px-10">
             <BaseImgSection v-if="facultyData.faculty.supervisory_teams[0]"
@@ -13,8 +13,20 @@
                 :title="'Faculty ' + facultyData.faculty.supervisory_teams[1].position + '’s speech (' + facultyData.faculty.supervisory_teams[1].name + ' )'"
                 :description="facultyData.faculty.supervisory_teams[1].description"
                 :imgPath="facultyData.faculty.supervisory_teams[1].image" :animate="true" />
-            <FacultyVideo title="Definition of the faculty" :video="facultyData.faculty.video" :description="facultyData.faculty.description_video"
-                v-if="facultyData.faculty.video" />
+            <FacultyVideo title="Definition of the faculty" :video="facultyData.faculty.video"
+                :description="facultyData.faculty.description_video" v-if="facultyData.faculty.video" />
+            <!-- vision -->
+            <BaseContainer class="min-h-64 py-5">
+                <BaseTitle title="faculty's Vision" class="mx-auto" />
+                <BaseSubtitle :subtitle="facultyData.faculty.vision" class="mx-auto"
+                    text_styles="!text-gray-dark !text-lg !font-Mulish" />
+            </BaseContainer>
+            <!-- mission -->
+            <BaseContainer class="min-h-64 py-5">
+                <BaseTitle title="faculty's mission" class="mx-auto" />
+                <BaseSubtitle :subtitle="facultyData.faculty.mission" class="mx-auto"
+                    text_styles="!text-gray-dark !text-lg !font-Mulish" />
+            </BaseContainer>
             <Departments :Departments="facultyData.faculty.department" v-if="facultyData.faculty.department.length" />
             <Projects :Projects="facultyData.projects" v-if="facultyData.projects.length" />
             <FacultyMember :FacultyMember="facultyData.faculty.faculty_member"
@@ -44,6 +56,7 @@
 <script setup>
 import BaseHeaderImage from "@/components/BaseHeaderImage.vue";
 import FacultyVideo from "../departments/components/DepartmentVideo.vue";
+import BaseContainer from "@/components/BaseContainer.vue";
 
 import Departments from "./components/Departments.vue";
 import Projects from "./components/Projects.vue";

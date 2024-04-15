@@ -5,26 +5,25 @@
       :imgPath="departmentData.image" />
     <div class=" flex flex-col px-0 md:px-10">
       <BaseImgSection v-if="departmentData.supervisory_team[0]"
-        :title="'Department ' + departmentData.supervisory_team[0].position + '’s speech (' + departmentData.supervisory_team[0].name + ' )'"
+        :title="'Program ' + departmentData.supervisory_team[0].position + '’s speech (' + departmentData.supervisory_team[0].name + ' )'"
         :description="departmentData.supervisory_team[0].description"
         :imgPath="departmentData.supervisory_team[0].image" :animate="true" />
-      <DepartmentVideo title="Definition of the department" :video="departmentVideo"
+      <DepartmentVideo title="Definition of the program" :video="departmentVideo"
         :description="departmentData.description_video" v-if="departmentVideo" />
       <template v-if="departmentData.job_opportunities">
         <Work class="mt-16" :Work="departmentData.job_opportunities" v-if="departmentData.job_opportunities.length" />
       </template>
+      <!-- vision -->
       <BaseContainer class="min-h-64 py-5 mb-20">
         <BaseTitle title="programs's Vision" class="mx-auto" />
-        <BaseSubtitle
-          subtitle="To empower individuals with the knowledge and skills necessary to thrive in a rapidly evolving digital world. Our IT program seeks to cultivate innovative thinkers, problem solvers, and technologically adept professionals who can drive positive change in society. By providing a comprehensive and dynamic curriculum, supported by cutting-edge research and industry partnerships, we aim to equip our students with the expertise and adaptability needed to succeed in diverse IT roles. Our vision is to foster a community of lifelong learners who are committed to excellence, ethical practice, and continual innovation, shaping the future of technology and making meaningful contributions to global progress."
-          class="mx-auto" text_styles="!text-gray-dark !text-lg !font-Mulish" />
+        <BaseSubtitle :subtitle="departmentData.vision" class="mx-auto"
+          text_styles="!text-gray-dark !text-lg !font-Mulish" />
       </BaseContainer>
-
+      <!-- mission -->
       <BaseContainer class="min-h-64 py-5">
         <BaseTitle title="programs's mission" class="mx-auto" />
-        <BaseSubtitle
-          subtitle="Our mission is to provide high-quality education and training in Information Technology, enabling students to excel in a rapidly advancing digital landscape. Through rigorous academic programs, hands-on learning experiences, and practical industry exposure, we strive to prepare our students for successful careers in IT. We are committed to fostering a supportive learning environment that encourages creativity, critical thinking, and collaboration. Additionally, we aim to conduct cutting-edge research that addresses real-world challenges and contributes to the advancement of IT knowledge. By promoting inclusivity, diversity, and ethical leadership, we seek to empower our graduates to make positive impacts in their professions and communities, driving innovation and societal progress through technology."
-          class="mx-auto" text_styles="!text-gray-dark !text-lg !font-Mulish" />
+        <BaseSubtitle :subtitle="departmentData.mission" class="mx-auto"
+          text_styles="!text-gray-dark !text-lg !font-Mulish" />
       </BaseContainer>
       <StudentProjects class="mt-16" :StudentProjects="departmentData.student_projects"
         v-if="departmentData.student_projects.length" />

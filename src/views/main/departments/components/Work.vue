@@ -22,7 +22,7 @@
 import { computed } from "vue";
 const props = defineProps({ Work: String })
 
-const jobs = props.Work.split(',')
+const jobs = props.Work
 
 const getXPosition = computed(() => (index) => {
   return index % 2 === 0 ? -100 : 100;

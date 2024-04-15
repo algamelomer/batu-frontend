@@ -21,8 +21,6 @@ import autoChangeData from './news_components/js/autoChangeData'
 import clickhandler from './news_components/js/clickhandler'
 import truncatedDescription from './news_components/js/truncatedDescription'
 import isActive from './news_components/js/isActive'
-import filterData from '@/global/filterData.js';
-import { useStore } from '@/store'
 
 const props = defineProps({
   news: Array,
@@ -52,19 +50,5 @@ const test = () => {
 }
 
 test()
-// const response = ref()
-// const fetchData = async () => {
-//   try {
-//     await useStore().getPosts("/")
-//     response.value = useStore().posts
-//     filterData(Object.values(response.value), apiData, "type", "news");
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//   } finally {
-//     autoChangeData(apiData, mainCard, counter, isPaused, activeCard);
-//   }
-// };
 
-
-// fetchData();
 </script>

@@ -126,7 +126,8 @@
         <li>All rights reserved.</li>
       </ul>
       <ul class=" ul_grid">
-        <li class=" text-lg transition hover:text-green-light duration-500 cursor-pointer"><router-link to="/aboutUs">About University</router-link></li>
+        <li class=" text-lg transition hover:text-green-light duration-500 cursor-pointer"><router-link
+            to="/aboutUs">About University</router-link></li>
       </ul>
       <ul v-if="faculties && facultyData" v-for="faculty in faculties" :key="faculty.id"
         class=" gap-2 flex flex-col ul_grid">
@@ -134,10 +135,24 @@
           <li class=" text-lg transition hover:text-green-light duration-500 cursor-pointer">{{ faculty.name }}</li>
         </router-link>
         <ul class=" gap-1 flex flex-col">
-          <li v-for="department in test(faculty.id)" :key="department.id" class="group cursor-pointer text-sm transition hover:text-green-light duration-500">
+          <li v-for="department in test(faculty.id)" :key="department.id"
+            class="group cursor-pointer text-sm transition hover:text-green-light duration-500">
             <router-link :to="'/departments/' + department.id">{{ department.name }}</router-link>
           </li>
         </ul>
+      </ul>
+      <ul>
+        <li class=" text-lg transition hover:text-green-light duration-500 cursor-pointer"><a
+            href="https://www.google.com/maps/place/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A8%D8%B1%D8%AC+%D8%A7%D9%84%D8%B9%D8%B1%D8%A8+%D8%A7%D9%84%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A9%E2%80%AD/@30.8582875,29.5688782,17z/data=!3m1!4b1!4m6!3m5!1s0x145f7d35b368ca83:0x6b44d7cb3b2a22f8!8m2!3d30.8582875!4d29.5714531!16s%2Fg%2F11pf5zg0pm?entry=ttu">
+            BATU location</a></li>
+        <li>
+          <div style="overflow:hidden;max-width:100%;width:100%;height:100%;min-height: 300px;">
+            <div class="google-maps-display" style="height:100%; width:100%;max-width:100%;"><iframe
+                style="height:100%;width:100%;border:0;" frameborder="0"
+                src="https://www.google.com/maps/embed/v1/place?q=جامعة+برج+العرب+التكنولوجية,+Unnamed+Road,+Hod+Sakrah+WA+Abu+Hamad,+Borg+El+Arab,+Egypt&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
     <div class=" flex flex-col">
@@ -157,8 +172,10 @@
           </li>
         </ul>
         <li class=" relative w-full mt-8 md:mt-0 max-w-[454px]">
-          <input type="text" class=" bg-gray-light w-full md:w-[454px] h-12 rounded-3xl pl-5" placeholder="Your Email Here...">
-          <button class="absolute right-0 top-0 bg-green-light h-full flex justify-center items-center rounded-full w-12">
+          <input type="text" class=" bg-gray-light w-full md:w-[454px] h-12 rounded-3xl pl-5"
+            placeholder="Your Email Here...">
+          <button
+            class="absolute right-0 top-0 bg-green-light h-full flex justify-center items-center rounded-full w-12">
             <font-awesome-icon icon="paper-plane" class=" text-gray-light m-auto" />
           </button>
         </li>
@@ -203,5 +220,11 @@ const test = (fac) => {
 <style scoped>
 .ul_grid {
   @apply px-2 pb-7
+}
+
+.google-maps-display img {
+  max-height: none;
+  max-width: none !important;
+  background: none !important;
 }
 </style>

@@ -40,10 +40,10 @@ export default createRouter({
                 { path: "/FacultyStaff/:id", component: FacultyStaff, props: true },
                 { path: "/dr", component: dr_page },
                 { path: "/how_to_apply", component: how_to_apply },
-                { path: "/grades", component: grades },
+                { path: "/grades", component: grades, props: true },
+                { path: "/grades/:err", component: grades, props: true },
                 { path: "/grades/:sitting_num/:dep", component: grades, props: true },
                 { path: "/developers", component: team },
-
             ],
         },
         {
@@ -144,6 +144,12 @@ export default createRouter({
                     name: "DashboardStudy",
                     component: () =>
                         import ("@/views/auth/dashboard/Dashboard_study_plan.vue"),
+                },
+                {
+                    path: "/dashboard/grades",
+                    name: "DashboardGrades",
+                    component: () =>
+                        import ("@/views/auth/dashboard/Dashboard_grades.vue"),
                 },
                 {
                     path: "/dashboard/:category/Upload",

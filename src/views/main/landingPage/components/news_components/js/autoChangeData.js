@@ -3,21 +3,22 @@ export const autoChangeData = (apiData, mainCard, counter, isPaused, activeCard)
         const initialItem = apiData.value[0];
         mainCard.value.title = initialItem.title;
         mainCard.value.content = initialItem.description;
-        mainCard.value.img = initialItem.file;
+        mainCard.value.img = initialItem.files[0];
         mainCard.value.id = initialItem.id;
         activeCard();
-      }
-      setInterval(() => {
+    }
+    setInterval(() => {
         if (apiData.value.length > 0 && !isPaused) {
-          const nextItem = apiData.value[counter];
-          mainCard.value.title = nextItem.title;
-          mainCard.value.content = nextItem.description;
-          mainCard.value.img = nextItem.file;
-          mainCard.value.id = nextItem.id;
-          counter = (counter + 1) % apiData.value.length;
-          activeCard();
+            const nextItem = apiData.value[counter];
+            mainCard.value.title = nextItem.title;
+            mainCard.value.content = nextItem.description;
+            mainCard.value.img = nextItem.files[0];
+            mainCard.value.id = nextItem.id;
+            counter = (counter + 1) % apiData.value.length;
+            activeCard();
         }
-      }, 5000);}
+    }, 5000);
+}
 
 
-      export default autoChangeData;
+export default autoChangeData;

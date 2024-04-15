@@ -79,8 +79,8 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
-import filterData from "@/global/filterData"
-import { useStore } from '@/store'
+// import filterData from "@/global/filterData"
+// import { useStore } from '@/store'
 
 const props = defineProps({ FacultyMember: Array })
 
@@ -118,10 +118,10 @@ const staff = ref()
 // filterData(response.data.data, staff, "faculty_id", faculty);
 
 const getData = async () => {
-    await useStore().getfacultyMember("/")
-    // (useStore().facultyMember.data)
-    filterData(useStore().facultyMember.data, staff, "faculty_id", props.id);
-    // (staff.value)
+    // await useStore().getfacultyMember("/")
+    // // (useStore().facultyMember.data)
+    staff.value = props.FacultyMember
+    console.log(staff.value)
 }
 
 getData();

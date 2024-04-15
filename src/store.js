@@ -11,7 +11,8 @@ import users from "./api/auth/users";
 import fetchFacultiesList from "./api/facultiesList";
 import posts from "./api/posts";
 import detailed from "./api/detailed";
-import about from "./api/aboutUs"
+import about from "./api/aboutUs";
+import grade from "./api/grade";
 
 export const useStore = defineStore({
     id: "counter",
@@ -48,7 +49,11 @@ export const useStore = defineStore({
         users: {},
         posts: {},
         detailed: {},
-        about: {}
+        about: {},
+        grade: {
+            departments: {},
+            faculties: {},
+        },
     }),
     getters: {
         user: (state) => state.authUser,
@@ -106,6 +111,10 @@ export const useStore = defineStore({
         async getAbout() {
             const ab = await about();
             this.about = {...ab };
+        },
+        async getGrade() {
+            const gd = await grade();
+            this.grade = {...gd };
         },
         decrement() {
             this.count--;

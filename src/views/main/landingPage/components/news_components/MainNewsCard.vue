@@ -16,10 +16,6 @@
 const props = defineProps({
   mainCard: Object,
 })
-// export default {
-//   props: {
-//     mainCard: Object,
-//   },
-// };
+
 </script>
   

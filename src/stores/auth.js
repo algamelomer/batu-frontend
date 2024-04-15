@@ -509,8 +509,6 @@ export const useAuthStore = defineStore("auth", {
             }
         },
 
-
-
         async handleStudy(data) {
             this.authErrors = [];
             try {
@@ -518,8 +516,8 @@ export const useAuthStore = defineStore("auth", {
                 if (!data.id) {
                     data.id = "";
                 }
-                console.log(data.id)
-                    // (data);
+                console.log(data.id);
+                // (data);
                 const response = await axios.post("/api/StudyPlan/" + data.id, data, {
                     headers: {
                         "Content-Type": "multipart/form-data",
@@ -571,8 +569,6 @@ export const useAuthStore = defineStore("auth", {
                 }
             }
         },
-
-
 
         async handleAbout_Us(data) {
             this.authErrors = [];
@@ -688,6 +684,42 @@ export const useAuthStore = defineStore("auth", {
                 }
             }
         },
+
+        async handleGrades(data) {
+            this.authErrors = [];
+            try {
+                await this.getToken();
+                console.log(data)
+                const response = await axios.post("/api/grade/", data, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+
+                if (response.status === 201) {
+                    alert("Success");
+                    router.go(-1);
+                } else if (response.status === 200) {
+                    alert("Success");
+                    router.go(-1);
+                } else {
+                    alert("Error: Unexpected status code");
+                    // (data);
+                }
+            } catch (error) {
+                if (error.response) {
+                    if (error.response.status === 422) {
+                        this.authErrors = error.response.data.errors;
+                        alert("Error: Validation failed");
+                    } else {
+                        alert("Error: Server error");
+                    }
+                } else {
+                    alert("Error: Network error");
+                }
+            }
+        },
+
         async handleForgotPassword(email) {
             this.authErrors = [];
 

@@ -3,9 +3,16 @@
     <LandingImage :counter="details.counter" color="text-gray-light" background="bg-gray-light "
       styles="sm:brightness-[4]" v-if="details.counter" />
     <div class=" md:px-10">
-      <BaseImgSection title="University President’s Word" :animate="true"
-        description="Embark on a transformative Academic Odyssey at BATU – where knowledge meets innovation, shaping future leaders and visionaries."
-        imgPath="src/assets/gohary.jpg" />
+      <!-- President’s word -->
+      <template v-for=" items in president">
+        <template v-if="items.position == 'university_president'">
+          <BaseImgSection title="University President’s Word" :animate="true"
+            :description="items.description"
+            :imgPath="items.image" />
+        </template>
+      </template>
+
+
       <News :news="news" class=" mt-16" title="Recent News"
         subtitle="Explore our latest university news. Stay informed about breakthroughs, events, and achievements shaping our dynamic academic community. Discover more." />
       <Departments :departments="departmentData" v-if="departmentData" />
@@ -55,12 +62,16 @@ const loader = ref(true)
 const news = ref()
 const departmentData = ref()
 const details = ref(null)
+const president = ref(null)
 
 const getData = async () => {
   try {
     await useStore().getPosts("/")
-    news.value = useStore().posts
-    filterData(Object.values(news.value), news, "type", "news");
+    news.value = useStore().posts.news
+    // console.log(news.value)
+    // filterData(Object.values(news.value), news, "type", "news");
+    await useStore().getSupervisory("/")
+    president.value = useStore().supervisory.data
     await useStore().getDepartments("/")
     departmentData.value = useStore().department.departments
     await useStore().getDetailed()

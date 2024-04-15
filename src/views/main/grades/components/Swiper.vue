@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col items-center justify-between w-full mx-auto py-16 bg-gray-light dark:bg-darkMode-gray-light my-11 gap-7">
+        class="flex flex-col items-center justify-between w-full mx-auto py-16 bg-gray-light dark:bg-darkMode-gray-light my-11 gap-5">
         <div class=" flex flex-col items-center">
             <BaseTitle class=" font-bold font-mulish text-4xl text-green-dark" :title="title" :animate="true" />
         </div>
@@ -8,22 +8,27 @@
         <!-- Pagination -->
         <swiper :pagination="false" :modules="modules" :slides-per-view="pang_view" :freeMode="true"
             class="pagination w-10/12 h-24 md:h-20 bg-white" @swiper="onSwiper" @slideChange="onSlideChange">
-            <swiper-slide v-for="(item, index) in items" :key="index">
-                <span :class="{ active: index === currentIndex }" @click="goToSlide(index)">{{ item.name }}</span>
+            <swiper-slide v-for="(item, index) in items.grades" :key="index">
+                <span :class="{ active: index === currentIndex }" @click="goToSlide(index)">{{ item.subject }}</span>
             </swiper-slide>
         </swiper>
+        <div
+            class=" w-10/12 justify-between flex-wrap items-end flex-col-reverse flex sm:flex-row text-green-dark text-lg font-bold font-Mulish">
+            <p>{{ items.sitting_num }}</p>
 
+            <p>{{ items.name }}</p>
+        </div>
         <!-- Swiper for the content -->
         <div class="w-full">
             <swiper :pagination="false" :modules="modules" :slides-per-view="slides" :freeMode="true"
-                :space-between="25" :centeredSlides="true" class="mySwiper facultie-swiper px-4 sm:px-10" @swiper="onSwiper"
-                @slideChange="onSlideChange">
-                <swiper-slide v-for="item in items" :key="item.id" v-motion-fade-visible
+                :space-between="25" :centeredSlides="true" class="mySwiper facultie-swiper px-4 sm:px-10"
+                @swiper="onSwiper" @slideChange="onSlideChange">
+                <swiper-slide v-for="item in items.grades" :key="item.id" v-motion-fade-visible
                     class="swiper-slide-item relative !h-80 sm:!h-72 flex flex-col bg-green-light rounded-3xl py-10 gap-10 items-center">
                     <BaseTitle class=" font-bold font-mulish text-sm text-green-dark" styles=" !text-xl sm:!text-2xl"
-                        :title="item.name" :animate="false" />
+                        :title="item.subject" :animate="false" />
                     <div class=" rounded-3xl bg-green-dark text-center text-white text-sm w-52 h-8 flex justify-center">
-                        <p class=" m-auto">{{ item.grade }}</p>
+                        <p class=" m-auto">{{ item.score }}</p>
                     </div>
 
                     <!-- <div class="flex md:flex-row flex-col-reverse h-full" :class="{

@@ -1,7 +1,7 @@
 import get from "./apiCaller";
 
 export default async(id) => {
-    const res = await get("/api/member/" + id);
+    const res = await get("/api/staff/" + id);
     if (!res.error) {
         // (res.response.data)
         return res.response

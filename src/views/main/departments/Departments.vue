@@ -14,13 +14,13 @@
         <Work class="mt-16" :Work="departmentData.job_opportunities" v-if="departmentData.job_opportunities.length" />
       </template>
       <!-- vision -->
-      <BaseContainer class="min-h-64 py-5 mb-20">
+      <BaseContainer class="min-h-64 py-5  bg-gray-light mt-10">
         <BaseTitle title="programs's Vision" class="mx-auto" />
         <BaseSubtitle :subtitle="departmentData.vision" class="mx-auto"
           text_styles="!text-gray-dark !text-lg !font-Mulish" />
       </BaseContainer>
       <!-- mission -->
-      <BaseContainer class="min-h-64 py-5">
+      <BaseContainer class="min-h-64 py-5 bg-gray-light mt-10">
         <BaseTitle title="programs's mission" class="mx-auto" />
         <BaseSubtitle :subtitle="departmentData.mission" class="mx-auto"
           text_styles="!text-gray-dark !text-lg !font-Mulish" />

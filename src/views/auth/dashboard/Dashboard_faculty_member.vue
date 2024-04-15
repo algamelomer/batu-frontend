@@ -1,15 +1,16 @@
 <template>
-   
+
     <AddButton buttonText="add faculty member" buttonLabel="Add" :handleClick="handleClick" />
 
     <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700"></div>
 
-  
+
     <Grid :apiData="apiData">
-        <Cards v-for="item in apiData" :key="item.id" :item="item" :handleEdit="handleEdit" :handleDelete="DeleteItem" />
+        <Cards v-for="item in apiData" :key="item.id" :item="item" :handleEdit="handleEdit"
+            :handleDelete="DeleteItem" />
     </Grid>
 </template>
-  
+
 <script setup>
 import { useRouter } from 'vue-router';
 import { onMounted, ref } from 'vue'
@@ -27,7 +28,7 @@ const apiData = ref(false)
 
 const fetchData = async () => {
     try {
-        const response = await axios.get('/api/member');
+        const response = await axios.get('/api/staff');
         apiData.value = response.data.data;
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -53,4 +54,3 @@ const DeleteItem = async (id) => {
     fetchData();
 }
 </script>
-  

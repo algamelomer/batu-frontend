@@ -27,7 +27,7 @@
                 <BaseSubtitle :subtitle="facultyData.faculty.mission" class="mx-auto"
                     text_styles="!text-gray-dark !text-lg !font-Mulish" />
             </BaseContainer>
-            <Departments :Departments="facultyData.faculty.department" v-if="facultyData.faculty.department.length" />
+            <Departments :Departments="facultyData.faculty.department" v-if="facultyData.faculty.department" />
             <Projects :Projects="facultyData.projects" v-if="facultyData.projects.length" />
             <FacultyMember :FacultyMember="facultyData.faculty.faculty_member"
                 v-if="facultyData.faculty.faculty_member.length" />

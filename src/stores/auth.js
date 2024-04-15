@@ -340,7 +340,7 @@ export const useAuthStore = defineStore("auth", {
                     data.id = "";
                 }
                 // (data);
-                const response = await axios.post("/api/member/" + data.id, data, {
+                const response = await axios.post("/api/staff/" + data.id, data, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -374,7 +374,7 @@ export const useAuthStore = defineStore("auth", {
             this.authErrors = [];
             try {
                 await this.getToken();
-                await axios.delete("/api/member/" + data);
+                await axios.delete("/api/staff/" + data);
 
                 alert("deleted successfully");
             } catch (error) {

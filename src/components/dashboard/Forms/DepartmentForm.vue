@@ -16,13 +16,15 @@
             </div>
         </div>
 
-        <img loading="lazy"  v-if="form.imageUrl" :src="form.imageUrl" alt="Uploaded bg" class="mx-auto my-4 w-80 h-auto" />
+        <img loading="lazy" v-if="form.imageUrl" :src="form.imageUrl" alt="Uploaded bg"
+            class="mx-auto my-4 w-80 h-auto" />
         <div class=" flex justify-between px-12">
             <label for="bg">bg img</label>
             <input id="bg" type="file" @change="handleBgImageFileChange"
                 class="block w-3/4 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
         </div>
-        <img loading="lazy"  v-if="form.logoUrl" :src="form.logoUrl" alt="Uploaded logo" class="mx-auto my-4 w-80 h-auto" />
+        <img loading="lazy" v-if="form.logoUrl" :src="form.logoUrl" alt="Uploaded logo"
+            class="mx-auto my-4 w-80 h-auto" />
         <div class=" flex justify-between px-12">
             <label for="logo">logo</label>
             <input id="logo" type="file" @change="handleLogoFileChange"
@@ -33,11 +35,17 @@
             <input id="departmen" class=" dashInput text-black text-base resizable bg-gray-400 placeholder-gray-700"
                 type="text" placeholder="departmen name" v-model="form.name" />
             <label for="description">description</label>
-            <textarea id="description" class="dashTextArea text-black text-base resizable bg-gray-400 placeholder-gray-700"
-                type="text" placeholder="description" v-model="form.description"></textarea>
+            <textarea id="description"
+                class="dashTextArea text-black text-base resizable bg-gray-400 placeholder-gray-700" type="text"
+                placeholder="description" v-model="form.description"></textarea>
+            <iframe width="560" height="315" :src="form.video" class="m-auto" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             <label for="youtubevideourl">youtube video url</label>
-            <input id="youtubevideourl" class=" dashInput text-black text-base resizable bg-gray-400 placeholder-gray-700"
-                type="url" placeholder="youtube video url" @input="VideoInput" />
+            <input id="youtubevideourl"
+                class=" dashInput text-black text-base resizable bg-gray-400 placeholder-gray-700" type="url"
+                placeholder="youtube video url" @input="VideoInput" />
             <label for="description_video">description_video</label>
             <textarea id="description_video"
                 class="dashTextArea text-black text-base resizable bg-gray-400 placeholder-gray-700" type="text"
@@ -153,6 +161,7 @@ const fetchData = async () => {
             form.value.image = apiData.value.image;
             form.value.logo = apiData.value.logo;
             form.value.video = apiData.value.video;
+            form.value.description_video = apiData.value.description_video;
             form.value.description = apiData.value.description;
             form.value.job_opportunities = apiData.value.job_opportunities;
             form.value.id = apiData.value.id;
@@ -168,15 +177,16 @@ const fetchData = async () => {
             form.value.imageUrl = form.value.image
         };
         if (form.value.job_opportunities) {
-            // jobAdd.value = form.value.job_opportunities.split(',')
-            jobs.value = form.value.job_opportunities.split(',')
+            // jobAdd.value = form.value.job_opportunities
+            jobs.value = form.value.job_opportunities
         }
     }
 };
 
 const handleSubmit = (form) => {
-    form.job_opportunities = jobs.value.join(',')
+    form.job_opportunities = jobs.value;
     // (form.job_opportunities)
+    console.log(form)
     authStore.handleDepartment(form)
 }
 

@@ -6,7 +6,7 @@
       :navigations="[
         { name: 'Home', path: '/' },
         { name: 'Faculty Staff', path: '/facultyStaff' },
-        { name: 'Undergraduates', path: '/undergraduates' },
+        { name: 'Students', path: '/undergraduates' },
         { name: 'Contact Us', path: '/contactUs' },
         { name: 'How to Apply', path: '/How_to_apply' },
       ]"

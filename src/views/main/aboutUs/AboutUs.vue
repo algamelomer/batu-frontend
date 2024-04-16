@@ -9,15 +9,20 @@
     <!-- The university's organizational structure -->
     <BaseContainer class="mx-5">
       <BaseTitle title="The university's organizational structure" class="mx-auto" />
-      <ListTile v-for="doctor in doctorsDummyData" :name="doctor.name" :major="doctor.major" :imgPath="doctor.imgPath"
-        :onClick="doctor.onClick" class="mb-5 mt-5" />
+      <!-- <ListTile v-for="doctor in doctorsDummyData" 
+        :onClick="doctor.onClick" class="mb-5 mt-5" /> -->
+      <router-link
+        class=" bg-green-dark mb-5 border-green-dark border-2 hover:bg-green transition duration-300 w-full sm:w-3/4 md:w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
+        to="/soon">
+        <p>Learn More</p><font-awesome-icon icon="angle-up" class=" transform rotate-90" />
+      </router-link>
     </BaseContainer>
     <BaseContainer>
       <BaseTitle title="Centers & units" class="mx-auto" />
       <CardGrid :cards="dummyUnits" class="mt-12" text_style="!text-black !text-2xl !font-Mulish " />
     </BaseContainer>
     <!-- politics -->
-    <div class="bg-gray-light dark:bg-darkMode-gray-light flex flex-col justify-around p-20 rounded-[7px]">
+    <!-- <div class="bg-gray-light dark:bg-darkMode-gray-light flex flex-col justify-around p-20 rounded-[7px]">
       <BaseTitle title="Our Politics" :animate="true" class="mx-auto" />
       <ul class="gap-2 flex flex-col list-disc mt-20">
         <template v-for="item in politics" :key="item.id">
@@ -28,12 +33,12 @@
             <BaseSubtitle :subtitle="item.subtitle" class="w-fit h-min mt-0 mb-0 mx-0" text_styles="!mb-0 !mt-0" />
           </li>
         </template>
-      </ul>
-    </div>
+</ul>
+</div> -->
 
     <!-- Vacancies -->
     <div class="bg-gray-light dark:bg-darkMode-gray-light flex flex-col justify-around p-20 rounded-[7px]">
-      <BaseTitle title="Vacancies within the university" :animate="true" class="mx-auto" />
+      <BaseTitle title="BATU Careers" :animate="true" class="mx-auto" />
       <router-link
         class=" bg-green-dark border-green-dark border-2 hover:bg-green transition duration-300 w-full sm:w-3/4 md:w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
         to="/work_apply">
@@ -112,6 +117,11 @@ const dummyCards = [
     onclick: () => router.push("/youth_care"),
   },
   {
+    iconPath: "/icons/WhatsApp_Image_2024-04-16_at_06.08.04_4d4141bb-removebg-preview.png",
+    title: "Colleges Agents",
+    onclick: () => router.push("/agents"),
+  },
+  {
     iconPath: "./icons/hr.svg",
     title: "Human resources",
     onclick: () => router.push("/soon"),
@@ -135,22 +145,22 @@ const doctorsDummyData = [
   {
     name: "Organizer",
     major: "Organizer Description",
-    imgPath: "./5c62856ecd0d05ce0a3152961e49fdc9.png",
+    imgPath: "/5c62856ecd0d05ce0a3152961e49fdc9.png",
   },
   {
     name: "Organizer",
     major: "Organizer Description",
-    imgPath: "./5c62856ecd0d05ce0a3152961e49fdc9.png",
+    imgPath: "/5c62856ecd0d05ce0a3152961e49fdc9.png",
   },
   {
     name: "Organizer",
     major: "Organizer Description",
-    imgPath: "./5c62856ecd0d05ce0a3152961e49fdc9.png",
+    imgPath: "/5c62856ecd0d05ce0a3152961e49fdc9.png",
   },
   {
     name: "Organizer",
     major: "Organizer Description",
-    imgPath: "./5c62856ecd0d05ce0a3152961e49fdc9.png",
+    imgPath: "/5c62856ecd0d05ce0a3152961e49fdc9.png",
   },
 ];
 </script>

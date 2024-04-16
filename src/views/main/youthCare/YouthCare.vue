@@ -14,10 +14,10 @@
       />
     </BaseContainer>
 
-    <BaseContainer class="min-h-64 py-5 mx-5">
+    <!-- <BaseContainer class="min-h-64 py-5 mx-5">
       <BaseTitle title="Colleges Agents" class="mt-16 mx-auto" />
       <CardGrid class="mt-5" :cards="dummyCards" />
-    </BaseContainer>
+    </BaseContainer> -->
 
     <BaseContainer class="min-h-64 py-5 mx-5">
       <BaseTitle title="Our Services" class="mt-16 mx-auto" />
@@ -72,7 +72,7 @@ const dummyCards = [
 
   {
     id: 2,
-    iconPath: "/src/assets/personPlaceholder.png",
+    iconPath: "/WhatsApp Image 2024-04-15 at 9.16.45 PM - Rasha Yakout.jpeg",
     title: "وكيل كلية تكنولوجيا العلوم الصحية د رشا ياقوت",
     name: "د رشا ياقوت",
     major: "وكيل كلية تكنولوجيا العلوم الصحية",

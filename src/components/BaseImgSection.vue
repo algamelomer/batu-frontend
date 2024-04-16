@@ -3,7 +3,7 @@
     class="flex gap-10 my-11 flex-col justify-between bg-gray-light dark:bg-darkMode-gray-light py-16 w-full"
     :class="{ 'md:flex-row': !reverse, 'md:flex-row-reverse': reverse }"
   >
-    <div class="flex flex-col justify-center items-center mt-12">
+    <div class="flex flex-col justify-center md:w-1/2 items-center mt-12">
       <div
         class="max-w-[25rem] text-center flex flex-col justify-center items-center"
       >
@@ -11,7 +11,7 @@
       </div>
       <p
         v-motion-fade-visible
-        class="font-normal mt-10 text-center text-gray-dark"
+        class="font-normal md:pl-3 text-center md:text-justify mt-10 text-gray-dark"
       >
         {{ description }}
       </p>

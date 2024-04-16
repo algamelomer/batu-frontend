@@ -5,7 +5,7 @@
       :imgPath="departmentData.image" />
     <div class=" flex flex-col px-0 md:px-10">
       <BaseImgSection v-if="departmentData.supervisory_team[0]"
-        :title="'Program ' + departmentData.supervisory_team[0].position + '’s speech (' + departmentData.supervisory_team[0].name + ' )'"
+        :title="'Program ' + departmentData.supervisory_team[0].position + '’s word ' + departmentData.supervisory_team[0].name "
         :description="departmentData.supervisory_team[0].description"
         :imgPath="departmentData.supervisory_team[0].image" :animate="true" />
       <DepartmentVideo title="Definition of the program" :video="departmentVideo"

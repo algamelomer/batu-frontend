@@ -2,7 +2,7 @@
     <div class="flex flex-col items-center w-full mx-auto py-8 px-10 bg-gray-light dark:bg-darkMode-gray-light justify-around gap-5">
         <div>
             <div class=" flex flex-col items-center">
-                <BaseTitle class="text-center font-bold font-mulish text-4xl text-green-dark" title="Our Staff"
+                <BaseTitle class="text-center font-bold font-mulish text-4xl text-green-dark" title="Staff Members"
                     :animate="true" />
             </div>
             <p class="text-[#ccd2e9] text-center text-xl mt-10" v-motion-fade-visible>At Industry and Energy College, our
@@ -15,8 +15,8 @@
             disableOnInteraction: true,
         }" :freeMode="true" :pagination="false" :modules="modules" class="mySwiper flex flex-col w-11/12">
             <swiper-slide v-for="items in props.FacultyMember" :key="items.id" v-motion-fade-visible
-                class="flex flex-col text-center items-center relative ">
-                <img loading="lazy"  :src="items.image" alt="">
+                class="flex flex-col text-center items-center relative h-[400px]">
+                <img loading="lazy"  :src="items.image" class=" w-full h-full ob" alt="">
                 <div @click="togglePopup(items)"
                     class="flex flex-col items-center cursor-pointer absolute w-full bottom-0 bg-white opacity-85 justify-around h-2/6">
                     <h3 class="text-green-dark font-bold text-xl">{{ items.name }}</h3>

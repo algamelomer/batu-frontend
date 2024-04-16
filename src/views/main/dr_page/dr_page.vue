@@ -2,8 +2,10 @@
     <BaseHeaderImage :title="Header_Title" :subtitle="Header_Subtitle" :imgPath="imgPath" />
     <div class=" flex flex-col px-0 md:px-10 gap-6">
         <BaseImgSection :title="Journeys_Title" :description="Journeys_Subtitle" :imgPath="imgPath" class=" m-0" />
-        <News :news="news" title="Dr.Osama’s Events"
-            subtitle="Discover Dr. Osama El-Nahass's latest events. Stay updated on recent lectures, workshops, and seminars hosted by our esteemed faculty member." />
+        <template v-if="news">
+            <News :news="news" title="Dr.Osama’s Events"
+                subtitle="Discover Dr. Osama El-Nahass's latest events. Stay updated on recent lectures, workshops, and seminars hosted by our esteemed faculty member." />
+        </template>
         <certificate title="Dr.Osama’s Certificates" :certificates="certificates" />
     </div>
 </template>
@@ -25,32 +27,31 @@ const news = ref([
         id: 1,
         title: 'Dr.Osama hosts a Robocup event.',
         description: 'Description for the news Description for the news Description for the news.',
-        file: 'http://127.0.0.1:8000/assets/images/38f665be4c5a87f4dae873d8e32f3bf3.png',
+        files: ['http://127.0.0.1:8000/assets/images/38f665be4c5a87f4dae873d8e32f3bf3.png'],
         file_type: 'image'
     },
     {
         id: 2,
         title: 'Dr.Osama hosts an IT Club Iftar.',
         description: 'Description for the news Description for the news Description for the news.',
-        file: 'http://127.0.0.1:8000/assets/images/f87742b96f56a91a08e0d9281cb5481f.png',
+        files: ['http://127.0.0.1:8000/assets/images/f87742b96f56a91a08e0d9281cb5481f.png'],
         file_type: 'image'
     },
     {
         id: 3,
         title: 'Dr.Osama Supervise Projects.',
         description: 'Description for the news Description for the news Description for the news.',
-        file: 'http://127.0.0.1:8000/assets/images/ad1669497189eae89e2b01a506c60f94.png',
+        files: ['http://127.0.0.1:8000/assets/images/ad1669497189eae89e2b01a506c60f94.png'],
         file_type: 'image'
     },
     {
         id: 4,
         title: 'Dr.Osama Visits 57357 Hospital.',
         description: 'Description for the news Description for the news Description for the news.',
-        file: 'http://127.0.0.1:8000/assets/images/645b7af18754104f6a8abf36f6b47f7e.png',
+        files: ['http://127.0.0.1:8000/assets/images/645b7af18754104f6a8abf36f6b47f7e.png'],
         file_type: 'image'
     },
 ])
-
 const certificates = ref([
     {
         id: 1,

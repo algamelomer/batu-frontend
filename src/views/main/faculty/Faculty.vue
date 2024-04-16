@@ -5,7 +5,7 @@
         <!-- deep -->
         <div class=" px-0 md:px-10">
             <BaseImgSection v-if="facultyData.faculty.supervisory_teams[0]"
-                :title="'Faculty ' + facultyData.faculty.supervisory_teams[0].position + '’s speech (' + facultyData.faculty.supervisory_teams[0].name + ' )'"
+                :title="`Faculty Dean's Word ` + facultyData.faculty.supervisory_teams[0].name"
                 :description="facultyData.faculty.supervisory_teams[0].description"
                 :imgPath="facultyData.faculty.supervisory_teams[0].image" :animate="true" />
             <!-- vice deep -->
@@ -13,7 +13,7 @@
                 :title="'Faculty ' + facultyData.faculty.supervisory_teams[1].position + '’s speech (' + facultyData.faculty.supervisory_teams[1].name + ' )'"
                 :description="facultyData.faculty.supervisory_teams[1].description"
                 :imgPath="facultyData.faculty.supervisory_teams[1].image" :animate="true" />
-            <FacultyVideo title="Definition of the faculty" :video="facultyData.faculty.video"
+            <FacultyVideo title="فيديو تعريفي عن الكلية" :video="facultyData.faculty.video"
                 :description="facultyData.faculty.description_video" v-if="facultyData.faculty.video" />
             <!-- vision -->
             <BaseContainer class="min-h-64 py-5">
@@ -27,7 +27,8 @@
                 <BaseSubtitle :subtitle="facultyData.faculty.mission" class="mx-auto"
                     text_styles="!text-gray-dark !text-lg !font-Mulish" />
             </BaseContainer>
-            <Departments :Departments="facultyData.faculty.department" v-if="facultyData.faculty.department" />
+            <!-- departments -->
+            <Departments :Departments="facultyData.departments" v-if="facultyData.departments" />
             <Projects :Projects="facultyData.projects" v-if="facultyData.projects.length" />
             <FacultyMember :FacultyMember="facultyData.faculty.faculty_member"
                 v-if="facultyData.faculty.faculty_member.length" />
@@ -71,6 +72,7 @@ const facultyData = ref(null)
 const getData = async () => {
     await useStore().getFaculty(props.id)
     facultyData.value = useStore().faculty
+    console.log(facultyData.value)
 }
 getData();
 </script>

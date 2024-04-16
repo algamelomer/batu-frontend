@@ -5,7 +5,7 @@
       :imgPath="departmentData.image" />
     <div class=" flex flex-col px-0 md:px-10">
       <BaseImgSection v-if="departmentData.supervisory_team[0]"
-        :title="'Program ' + departmentData.supervisory_team[0].position + '’s word ' + departmentData.supervisory_team[0].name "
+        :title="'Program ' + departmentData.supervisory_team[0].position + '’s word ' + departmentData.supervisory_team[0].name"
         :description="departmentData.supervisory_team[0].description"
         :imgPath="departmentData.supervisory_team[0].image" :animate="true" />
       <DepartmentVideo title="Definition of the program" :video="departmentVideo"
@@ -27,8 +27,11 @@
       </BaseContainer>
       <StudentProjects class="mt-16" :StudentProjects="departmentData.student_projects"
         v-if="departmentData.student_projects.length" />
-      <availableCourses class="mt-16" :availableCourses="departmentData.study_plan"
+      <availableCourses class="mt-16 " :availableCourses="departmentData.study_plan"
         v-if="departmentData.study_plan.length" />
+
+      <FacultyMember class=" mt-16" :FacultyMember="departmentData.faculty_member"
+        v-if="departmentData.faculty_member.length" />
     </div>
     <Transition />
   </template>
@@ -63,6 +66,8 @@ import BaseContainer from "@/components/BaseContainer.vue";
 import BaseImgSection from "@/components/BaseImgSection.vue";
 import { ref, computed } from 'vue'
 import { useStore } from '@/store'
+import FacultyMember from "../faculty/components/FacultyMember.vue";
+
 import parseVideoUrl from '@/global/videoEmbed'
 
 

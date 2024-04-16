@@ -126,6 +126,11 @@ const dummyCards = [
     title: "Human resources",
     onclick: () => router.push("/soon"),
   },
+  {
+    iconPath: "/icons/meeting.png",
+    title: "College Council",
+    onclick: () => router.push("/soon"),
+  },
 ];
 
 const dummyUnits = [

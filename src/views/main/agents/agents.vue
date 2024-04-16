@@ -1,7 +1,6 @@
 <template>
     <BaseHeaderImage title="College agents"
-        subtitle="College Connect is a program dedicated to offering a nurturing and empowering environment for students navigating the challenges of college life. Our team of committed professionals collaborates closely with each student to craft a customized support plan tailored to their distinct academic and personal requirements.
-                Whether it's academic struggles, emotional hurdles, or simply adapting to campus life, College Connect is here to provide the guidance and resources needed for success. We understand that every student's journey is unique, and we are committed to fostering an inclusive and supportive community where students can thrive and achieve their full potential."
+        subtitle="College Connect is a program dedicated to offering a nurturing and empowering environment for students navigating the challenges of college life. Our team of committed professionals collaborates closely with each student to craft a customized support plan tailored to their distinct academic and personal requirements."
         imgPath="/src/assets/youth.jpg" />
 
     <template v-if="noSpecificAgent()">

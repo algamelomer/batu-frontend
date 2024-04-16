@@ -4,11 +4,11 @@
       <div class="flex flex-col items-center">
         <img :src="props.imgPath" alt="" class="flex-none rounded-xl h-56" />
         <div class="bg-white rounded-xl grid grid-cols-1 gap-3 mt-9">
-          <a class="w-56 rounded-full h-12 bg-green cursor-pointer text-white justify-center text-center items-center flex hover:bg-green-dark duration-200" v-if="!props.isDean"
-            download :href="props.doctordata.cv">
+          <a class="w-56 rounded-full h-12 bg-green cursor-pointer text-white justify-center text-center items-center flex hover:bg-green-dark duration-200"
+            v-if="!props.isDean" download :href="props.doctordata.cv">
             Download Cv
           </a>
-          <!-- <button
+          <button
             class="w-56 border-2 border-green rounded-full h-12 bg-white text-black hover:bg-green hover:text-white duration-200"
             v-if="!props.isDean">
             Courses
@@ -16,12 +16,12 @@
           <button
             class="w-56 border-2 border-green rounded-full h-12 bg-white text-black hover:bg-green hover:text-white duration-200">
             Researches
-          </button> -->
-          <router-link to="/soon"
+          </button>
+          <!-- <router-link to="/soon"
             class="w-56 text-center justify-center flex items-center border-2 border-green rounded-full h-12 bg-white text-black hover:bg-green hover:text-white duration-200">
             Learn More
-          </router-link>
-          <a :href="'mailto:'+props.doctordata.email"
+          </router-link> -->
+          <a :href="'mailto:' + props.doctordata.email"
             class="w-56 border-2 flex text-center items-center justify-center border-green rounded-full h-12 bg-white text-black hover:bg-green hover:text-white duration-200">
             Contact Me
           </a>

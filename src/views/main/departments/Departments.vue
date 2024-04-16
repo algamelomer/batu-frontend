@@ -15,15 +15,15 @@
       </template>
       <!-- vision -->
       <BaseContainer class="min-h-64 py-5  bg-gray-light mt-10">
-        <BaseTitle title="programs's Vision" class="mx-auto" />
+        <BaseTitle title="Programs's Vision" class="mx-auto" />
         <BaseSubtitle :subtitle="departmentData.vision" class="mx-auto"
-          text_styles="!text-gray-dark !text-lg !font-Mulish" />
+          text_styles="!text-gray-dark !text-lg !font-Mulish text-justify" />
       </BaseContainer>
       <!-- mission -->
       <BaseContainer class="min-h-64 py-5 bg-gray-light mt-10">
-        <BaseTitle title="programs's mission" class="mx-auto" />
+        <BaseTitle title="Programs's Mission" class="mx-auto" />
         <BaseSubtitle :subtitle="departmentData.mission" class="mx-auto"
-          text_styles="!text-gray-dark !text-lg !font-Mulish" />
+          text_styles="!text-gray-dark !text-lg !font-Mulish text-justify" />
       </BaseContainer>
       <StudentProjects class="mt-16" :StudentProjects="departmentData.student_projects"
         v-if="departmentData.student_projects.length" />

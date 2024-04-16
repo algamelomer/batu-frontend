@@ -5,7 +5,7 @@
   >
     <div class="flex flex-col justify-center md:w-1/2 items-center mt-12">
       <div
-        class="max-w-[25rem] text-center flex flex-col justify-center items-center"
+        class="max-w-[30rem] text-center flex flex-col justify-center items-center"
       >
         <BaseTitle :title="title" :animate="animate" />
       </div>

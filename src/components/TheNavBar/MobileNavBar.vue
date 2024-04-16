@@ -31,7 +31,7 @@
                     <!-- Your navigation links -->
                     <router-link @click="closeNavBar" to="/" class="text-green-dark hover:bg-green-dark hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</router-link>
                     <router-link  @click="closeNavBar" to="/aboutUs" class="text-green-dark hover:bg-green-dark hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</router-link>
-                    <router-link  @click="closeNavBar" to="/undergraduates" class="text-green-dark hover:bg-green-dark hover:text-white block px-3 py-2 rounded-md text-base font-medium">Undergraduates</router-link>
+                    <router-link  @click="closeNavBar" to="/undergraduates" class="text-green-dark hover:bg-green-dark hover:text-white block px-3 py-2 rounded-md text-base font-medium">Students</router-link>
                     <router-link  @click="closeNavBar" to="/facultystaff" class="text-green-dark hover:bg-green-dark hover:text-white block px-3 py-2 rounded-md text-base font-medium">faculty & staff</router-link>
                     <button @click=" facultiesIsOpen=!facultiesIsOpen" class="text-green-dark w-full text-start hover:bg-green-dark hover:text-white block px-3 py-2 rounded-md text-base font-medium">faculties</button> 
                     <div class=" grid grid-cols-1 px-10" v-if="facultiesIsOpen">

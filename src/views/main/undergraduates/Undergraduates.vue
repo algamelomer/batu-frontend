@@ -1,5 +1,5 @@
 <template>
-    <BaseHeaderImage title="Undergraduates" subtitle="Explore our Undergraduates services hub. From academic support to extracurricular activities, discover resources to enhance your college experience." imgPath="src/assets/undergraduates.png"/>
+    <BaseHeaderImage title="Students" subtitle="Explore our Undergraduates services hub. From academic support to extracurricular activities, discover resources to enhance your college experience." imgPath="src/assets/undergraduates.png"/>
     <BaseContainer>
         <BaseTitle title="Undergraduates Services" class=" mx-auto"/>
         <CardGrid :cards="dummyCards" class=" mt-12" text_style="!text-black !text-2xl !font-Mulish "/>

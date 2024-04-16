@@ -10,7 +10,7 @@
                 :imgPath="facultyData.faculty.supervisory_teams[0].image" :animate="true" />
             <!-- vice deep -->
             <BaseImgSection v-if="facultyData.faculty.supervisory_teams[1]"
-                :title="'Faculty ' + facultyData.faculty.supervisory_teams[1].position + '’s speech (' + facultyData.faculty.supervisory_teams[1].name + ' )'"
+                :title="`Faculty Vice Dean's Word ` + facultyData.faculty.supervisory_teams[1].name"
                 :description="facultyData.faculty.supervisory_teams[1].description"
                 :imgPath="facultyData.faculty.supervisory_teams[1].image" :animate="true" />
             <FacultyVideo title="فيديو تعريفي عن الكلية" :video="facultyData.faculty.video"
@@ -23,7 +23,7 @@
             </BaseContainer>
             <!-- mission -->
             <BaseContainer class="min-h-64 py-5">
-                <BaseTitle title="faculty's mission" class="mx-auto" />
+                <BaseTitle title="faculty's Mission" class="mx-auto" />
                 <BaseSubtitle :subtitle="facultyData.faculty.mission" class="mx-auto"
                     text_styles="!text-gray-dark !text-lg !font-Mulish" />
             </BaseContainer>

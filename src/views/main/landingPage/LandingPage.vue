@@ -7,7 +7,7 @@
       <!-- President’s word -->
       <template v-for=" items in president">
         <template v-if="items.position == 'university_president'">
-          <BaseImgSection title="University President’s Word" :animate="true" :description="items.description"
+          <BaseImgSection :title="items.name " :animate="true" :description="items.description"
             :imgPath="items.image" />
         </template>
       </template>

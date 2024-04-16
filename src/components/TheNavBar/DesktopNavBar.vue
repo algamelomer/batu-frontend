@@ -8,7 +8,7 @@
         { name: 'Faculty Staff', path: '/facultyStaff' },
         { name: 'Students', path: '/undergraduates' },
         { name: 'Contact Us', path: '/contactUs' },
-        { name: 'How to Apply', path: '/How_to_apply' },
+        { name: 'Apply', path: '/How_to_apply' },
       ]"
     />
     <SocialBar />

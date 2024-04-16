@@ -7,7 +7,7 @@ import faculty from "@views/main/faculty/Faculty.vue";
 import ContactUs from "@views/main/ContactUs/Contact.vue";
 import Main from "@views/main/Main.vue";
 import work_apply from "@views/main/apply_for_work/apply_for_work.vue";
-//import how_to_apply from "@views/main/How_to_apply/How_to_apply.vue";
+import how_to_apply from "@views/main/How_to_apply/How_to_apply.vue";
 import Undergraduates from "@views/main/undergraduates/Undergraduates.vue";
 import Book from "@views/main/flipBook/Book.vue";
 import LMS from "@views/main/lms/LMS.vue";
@@ -15,9 +15,9 @@ import dr_page from "@views/main/dr_page/dr_page.vue";
 import FacultyStaff from "@views/main/facultyStaff/FacultyStaff.vue";
 import grades from "@views/main/grades/grades.vue";
 import team from "@views/main/team/team.vue";
-//import YouthCare from "@views/main/YouthCare/YouthCare.vue";
+import YouthCare from "@views/main/YouthCare/YouthCare.vue";
 import agents from "@views/main/agents/agents.vue";
-// import Credits from "@views/main/Credits/Credits.vue";
+import Credits from "@views/main/Credits/Credits.vue";
 
 export default createRouter({
     scrollBehavior(to, from, savedPosition) {
@@ -41,16 +41,16 @@ export default createRouter({
                 { path: "/FacultyStaff", component: FacultyStaff },
                 { path: "/FacultyStaff/:id", component: FacultyStaff, props: true },
                 { path: "/dr", component: dr_page },
-              //  { path: "/how_to_apply", component: how_to_apply },
+               { path: "/how_to_apply", component: how_to_apply },
                 { path: "/grades", component: grades, props: true },
                 { path: "/grades/:err", component: grades, props: true },
                 { path: "/grades/:sitting_num/:dep", component: grades, props: true },
                 { path: "/developers", component: team },
-               // { path: "/youth_care", component: YouthCare },
+               { path: "/youth_care", component: YouthCare },
                 { path: "/youth_care/:id", component: YouthCare, props: true },
                 { path: "/agents", component: agents },
                 { path: "/agents/:id", component: agents, props: true },
-                // { path: "/credits", component: Credits },
+                { path: "/credits", component: Credits },
             ],
         },
         {

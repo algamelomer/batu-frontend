@@ -1,0 +1,1 @@
+import{o as a,c as r,G as o,d as s}from"./index-LWMYTzMc.js";const c={key:0,class:"grid gap-5 grid-cols-1 lg:grid-cols-2 justify-center m-auto w-full pt-4"},i={__name:"Grid",props:{apiData:{type:[String,Boolean,Array],default:()=>[]}},setup(e){return(t,l)=>e.apiData?(a(),r("div",c,[o(t.$slots,"default")])):s("",!0)}};export{i as _};

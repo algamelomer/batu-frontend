@@ -1,25 +1,42 @@
 <template>
-  <BaseHeaderImage :title="baseTitle" :subtitle="baseSubtitle" imgPath="./aboutUs.png" />
+  <BaseHeaderImage
+    :title="baseTitle"
+    :subtitle="baseSubtitle"
+    imgPath="./aboutUs.png"
+  />
   <div class="flex flex-col md:px-10 px-0 mt-10 gap-10">
     <!-- universty sectors -->
     <BaseContainer>
       <BaseTitle title="University sectors" class="mx-auto" />
-      <CardGrid :cards="dummyCards" class="mt-12" text_style="!text-black !text-2xl !font-Mulish " />
+      <CardGrid
+        :cards="dummyCards"
+        class="mt-12"
+        text_style="!text-black !text-2xl !font-Mulish "
+      />
     </BaseContainer>
     <!-- The university's organizational structure -->
     <BaseContainer class="mx-5">
-      <BaseTitle title="The university's organizational structure" class="mx-auto" />
+      <BaseTitle
+        title="The university's organizational structure"
+        class="mx-auto"
+      />
       <!-- <ListTile v-for="doctor in doctorsDummyData" 
         :onClick="doctor.onClick" class="mb-5 mt-5" /> -->
       <router-link
-        class=" bg-green-dark mb-5 border-green-dark border-2 hover:bg-green transition duration-300 w-full sm:w-3/4 md:w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
-        to="/soon">
-        <p>Learn More</p><font-awesome-icon icon="angle-up" class=" transform rotate-90" />
+        class="bg-green-dark mb-5 border-green-dark border-2 hover:bg-green transition duration-300 w-full sm:w-3/4 md:w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
+        to="/soon"
+      >
+        <p>Learn More</p>
+        <font-awesome-icon icon="angle-up" class="transform rotate-90" />
       </router-link>
     </BaseContainer>
     <BaseContainer>
       <BaseTitle title="Centers & units" class="mx-auto" />
-      <CardGrid :cards="dummyUnits" class="mt-12" text_style="!text-black !text-2xl !font-Mulish " />
+      <CardGrid
+        :cards="dummyUnits"
+        class="mt-12"
+        text_style="!text-black !text-2xl !font-Mulish "
+      />
     </BaseContainer>
     <!-- politics -->
     <!-- <div class="bg-gray-light dark:bg-darkMode-gray-light flex flex-col justify-around p-20 rounded-[7px]">
@@ -37,12 +54,16 @@
 </div> -->
 
     <!-- Vacancies -->
-    <div class="bg-gray-light dark:bg-darkMode-gray-light flex flex-col justify-around p-20 rounded-[7px]">
+    <div
+      class="bg-gray-light dark:bg-darkMode-gray-light flex flex-col justify-around p-20 rounded-[7px]"
+    >
       <BaseTitle title="BATU Careers" :animate="true" class="mx-auto" />
       <router-link
-        class=" bg-green-dark border-green-dark border-2 hover:bg-green transition duration-300 w-full sm:w-3/4 md:w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
-        to="/work_apply">
-        <p>Go To Page</p><font-awesome-icon icon="angle-up" class=" transform rotate-90" />
+        class="bg-green-dark border-green-dark border-2 hover:bg-green transition duration-300 w-full sm:w-3/4 md:w-[462px] m-auto h-[60px] rounded-[41px] text-white text-center flex justify-center items-center mt-16 text-[15px] gap-10"
+        to="/work_apply"
+      >
+        <p>Go To Page</p>
+        <font-awesome-icon icon="angle-up" class="transform rotate-90" />
       </router-link>
     </div>
     <!-- ask the university president -->
@@ -117,7 +138,8 @@ const dummyCards = [
     onclick: () => router.push("/youth_care"),
   },
   {
-    iconPath: "/icons/WhatsApp_Image_2024-04-16_at_06.08.04_4d4141bb-removebg-preview.png",
+    iconPath:
+      "/icons/WhatsApp_Image_2024-04-16_at_06.08.04_4d4141bb-removebg-preview.png",
     title: "Colleges Agents",
     onclick: () => router.push("/agents"),
   },
@@ -131,6 +153,11 @@ const dummyCards = [
     iconPath: "/icons/meeting.png",
     title: "University council",
     onclick: () => router.push("/soon"),
+  },
+  {
+    iconPath: "icons/environment.png",
+    title: "Community Service And Environmental Development Affairs",
+    onclick: () => router.push("/environmentdev"),
   },
 ];
 

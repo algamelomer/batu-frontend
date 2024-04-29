@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 import LandingPage from "@views/main/landingPage/LandingPage.vue";
 import Departments from "@views/main/departments/Departments.vue";
@@ -23,7 +23,7 @@ export default createRouter({
   scrollBehavior(to, from, savedPosition) {
     return { top: 0 };
   },
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/",
